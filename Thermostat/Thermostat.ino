@@ -172,4 +172,3 @@ void buttonDownPressedCallback() {
 bool isButtonPressed(int i) {
   return (digitalRead(i) == LOW);
 }
-
