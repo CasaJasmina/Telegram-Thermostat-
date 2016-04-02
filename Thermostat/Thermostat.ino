@@ -49,13 +49,13 @@ FlashStorage(my_flash_store_two, typeof(days));
 
 
 // Initialize Wifi connection to the router
-char ssid[] = "officine1";             // your network SSID (name)
-char pass[] = "IoTisMagic";           // your network key
+char ssid[] = "Network";             // your network SSID (name)
+char pass[] = "password";           // your network key
 
 // Initialize Telegram BOT
-const String BotToken = "197773396:AAFgI0W7LzvFMI0KcL45b0uwE9rMKZfItow";
-const String BotName = "Home";
-const String BotUsername = "CasaJasminaBot";
+const String BotToken = "****";
+const String BotName = "****";
+const String BotUsername = "****";
 
 WiFiSSLClient client;
 TelegramBot bot (BotToken, BotName, BotUsername, client);
