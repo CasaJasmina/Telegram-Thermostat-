@@ -71,13 +71,13 @@ void setup() {
   DHTSensor.begin();
   ScreenBegin();
 
-  pinMode(1, INPUT);
-  pinMode(0, INPUT);
+  pinMode(2, INPUT);
+  pinMode(3, INPUT);
   pinMode(4, INPUT);
 
-  attachInterrupt(1, buttonUpPressedCallback, RISING);
-  attachInterrupt(4, buttonEnterPressedCallback, RISING);
-  attachInterrupt(0, buttonDownPressedCallback, RISING);
+  attachInterrupt(2, buttonUpPressedCallback, RISING);
+  attachInterrupt(3, buttonEnterPressedCallback, RISING);
+  attachInterrupt(4, buttonDownPressedCallback, RISING);
 
   my_flash_store.read(&default_temp);
   my_flash_store_two.read(&days);
