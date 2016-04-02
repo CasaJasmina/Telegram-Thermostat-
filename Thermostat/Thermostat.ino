@@ -1,22 +1,19 @@
- 
+
 #include <Adafruit_GFX.h>    // Core graphics library
 #include <Adafruit_ST7735.h> // Hardware-specific library
 #include <SPI.h>
 #include <WiFiSSLClient.h>
 #include <WiFi101.h>
 #include <TelegramBot.h>
-#include <WiFiUdp.h>  
+#include <WiFiUdp.h>
 #include <RTCZero.h>
 #include "config.h"
 #include <time.h>
 #include <FlashStorage.h>
 
-RTCZero rtc;
-// Used for NTP
 
-WiFiUDP Udp; // A UDP instance to let us send and receive packets over UDP
-
-Adafruit_ST7735 tft = Adafruit_ST7735(TFT_CS, TFT_DC, TFT_MOSI, TFT_SCLK, TFT_RST);
+//Adafruit_ST7735 tft = Adafruit_ST7735(TFT_CS, TFT_DC, TFT_MOSI, TFT_SCLK, TFT_RST);
+Adafruit_ST7735 tft = Adafruit_ST7735(TFT_CS,  TFT_DC, TFT_RST);
 
 Sensor DHTSensor;
 
@@ -35,7 +32,6 @@ int day_counter = 1;
 int STATE;
 int default_temp;
 
-
 typedef struct _day {
   bool hours[24] = {false};
 } Programma;
@@ -53,13 +49,13 @@ FlashStorage(my_flash_store_two, typeof(days));
 
 
 // Initialize Wifi connection to the router
-char ssid[] = "xxxx";             // your network SSID (name)
-char pass[] = "yyyy";           // your network key
+char ssid[] = "officine1";             // your network SSID (name)
+char pass[] = "IoTisMagic";           // your network key
 
 // Initialize Telegram BOT
-const String BotToken = "****";
-const String BotName = "****";
-const String BotUsername = "****";
+const String BotToken = "197773396:AAFgI0W7LzvFMI0KcL45b0uwE9rMKZfItow";
+const String BotName = "Home";
+const String BotUsername = "CasaJasminaBot";
 
 WiFiSSLClient client;
 TelegramBot bot (BotToken, BotName, BotUsername, client);
@@ -75,8 +71,8 @@ void setup() {
   DHTSensor.begin();
   ScreenBegin();
 
-  pinMode(2, INPUT);
-  pinMode(3, INPUT);
+  pinMode(1, INPUT);
+  pinMode(0, INPUT);
   pinMode(4, INPUT);
 
   attachInterrupt(1, buttonUpPressedCallback, RISING);
