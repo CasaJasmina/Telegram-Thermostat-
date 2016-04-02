@@ -75,8 +75,8 @@ void setup() {
   DHTSensor.begin();
   ScreenBegin();
 
-  pinMode(1, INPUT);
-  pinMode(0, INPUT);
+  pinMode(2, INPUT);
+  pinMode(3, INPUT);
   pinMode(4, INPUT);
 
   attachInterrupt(1, buttonUpPressedCallback, RISING);
